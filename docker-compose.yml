@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16
+    container_name: db_app
+    command: -p 5432
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: jwt-user
+      POSTGRES_PASSWORD: jwt333
+      POSTGRES_DB: jwt-auth
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d postgres -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+  go:
+    build:
+      context: .
+    env_file:
+      - .env
+    container_name: jwt_auth
+    command: ["/jwt-auth/docker/run.sh"]
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

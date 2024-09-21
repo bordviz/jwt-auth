@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "4926f531-92d3-4e4d-854e-7a47c04b51f3",
+		"name": "JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23064045"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tokens",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tokens/086dac0b-1ec8-44f4-99dc-223ee2e1bb92",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tokens",
+						"086dac0b-1ec8-44f4-99dc-223ee2e1bb92"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Tokens",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjc1MzE2MDgsImlwX2FkZHJlc3MiOiIxOTIuMTY4LjY1LjE6NjUwMjkiLCJyZWZyZXNoX2lkIjoxLCJ1c2VyX2lkIjoiMDg2ZGFjMGItMWVjOC00NGY0LTk5ZGMtMjIzZWUyZTFiYjkyIn0.YRnNUO5jSyYgYvYq2sPV2wjFn6eI8ZWUZQ1fku4MeMcq3u2QSwZyRT_UOPK7pH5gUm9ZDHgyPljXEfTe_p35Pw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/refresh-tokens",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"refresh-tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Current User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjY5MzAyMDYsImlwX2FkZHJlc3MiOiIxOTIuMTY4LjY1LjE6NjUwMjciLCJyZWZyZXNoX2lkIjoyLCJ1c2VyX2lkIjoiMTcxMDQzYmItZGM5Mi00MzhjLWIxMzEtZTMzYmQwMTFhNDY2In0.4Rr63HGDKAwSYWsCVeKL2Y9P53VT9zzTxiXxtUZYw2wH2M_TKh8BBcEQ97VPGgjMrnuNgfky-VNWWs2s_krb3w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/current-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"current-user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
